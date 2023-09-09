@@ -1,46 +1,112 @@
-import 'package:dispora_mobile_new/view/bloc/user_bloc.dart';
-import 'package:dispora_mobile_new/view/data/datasource/remote_datasource.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter/material.dart';
+import 'dart:async';
+import 'dart:convert';
 
-class Test extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+Future<List<Album>> fetchAlbum() async {
+  final String token =
+      "Bearer 1|zieoP30NpGAOxzstUiRuFVSo2e4cuZ8v84AepWZR"; // Gantilah YOUR_TOKEN_HERE dengan token Anda
+
+  final response = await http.get(
+    Uri.parse('https://diasporacirebonkab.online/api/pegawai/4'),
+    headers: {
+      'Authorization': token,
+    },
+  );
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    final List<dynamic> data = jsonDecode(response.body);
+    final List<Album> albums =
+        data.map((json) => Album.fromJson(json)).toList();
+    return albums;
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load album');
+  }
+}
+
+class Album {
+  final int id;
+  final String nama;
+  final String jabatan;
+
+  const Album({
+    required this.id,
+    required this.nama,
+    required this.jabatan,
+  });
+
+  factory Album.fromJson(Map<String, dynamic> json) {
+    return Album(
+      id: json['id'],
+      nama: json['nama'],
+      jabatan: json['jabatan'],
+    );
+  }
+}
+
+void main() => runApp(const Test());
+
+class Test extends StatefulWidget {
   const Test({super.key});
 
   @override
+  State<Test> createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  late Future<List<Album>> futureAlbums; // Perbarui tipe data
+
+  @override
+  void initState() {
+    super.initState();
+    futureAlbums = fetchAlbum();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          UserBloc(remoteDataSource: RemoteDataSource())..add(LoadUser()),
-      child: Scaffold(
+    return MaterialApp(
+      title: 'Fetch Data Example',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
         appBar: AppBar(
-          title: const Text('users'),
+          title: const Text('Fetch Data Example'),
         ),
-        body: BlocBuilder<UserBloc, UserState>(
-          builder: (context, state) {
-            if (state is UserLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is UserLoaded) {
-              final data = state.users;
-              return ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(data[index].avatar),
-                    ),
-                    title: Text(
-                        '${data[index].firstname} ${data[index].lastname}'),
-                    subtitle: Text(data[index].email),
-                  );
-                },
-              );
-            } else if (state is UserError) {
-              return Center(
-                child: Text(state.error),
-              );
-            }
-            return const SizedBox();
-          },
+        body: Center(
+          child: FutureBuilder<List<Album>>(
+            future: futureAlbums,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                // Menampilkan loading spinner selama data sedang diambil.
+                return CircularProgressIndicator();
+              } else if (snapshot.hasError) {
+                // Menampilkan pesan kesalahan jika terjadi kesalahan.
+                return Text('Error: ${snapshot.error}');
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                // Menampilkan pesan jika data kosong.
+                return Text('Tidak ada data.');
+              } else {
+                // Menampilkan daftar album.
+                return ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, index) {
+                    final album = snapshot.data![index];
+                    return ListTile(
+                      title: Text(album.nama),
+                      subtitle: Text(album.jabatan),
+                      // Tambahkan tampilan lain sesuai kebutuhan.
+                    );
+                  },
+                );
+              }
+            },
+          ),
         ),
       ),
     );

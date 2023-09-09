@@ -9,12 +9,12 @@ part 'pegawai_event.dart';
 part 'pegawai_state.dart';
 
 class PegawaiBloc extends Bloc<PegawaiEvent, PegawaiState> {
-  final DataPegawai dataPegawai;
-  PegawaiBloc({required this.dataPegawai}) : super(PegawaiInitial()) {
+  final RemoteDataSource remoteDataSource;
+  PegawaiBloc({required this.remoteDataSource}) : super(PegawaiInitial()) {
     on<LoadPegawai>((event, emit) async {
       emit(PegawaiLoading());
       try {
-        final result = await dataPegawai.getPegawai();
+        final result = await remoteDataSource.getPegawai();
         emit(PegawaiLoaded(result.data));
       } catch (error) {
         emit(PegawaiError(error.toString()));
