@@ -1,3 +1,4 @@
+import 'package:dispora_mobile_new/view/login.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'menu.dart';
@@ -69,12 +70,17 @@ class _BerandaState extends State<Beranda> {
                       Container(
                         width: 40,
                         height: 40,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(width: 1, color: Colors.black),
-                          color: Colors.white,
-                        ),
-                        child: Icon(Icons.account_circle_outlined),
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignIn()));
+                            },
+                            icon: Icon(
+                              Icons.login_rounded,
+                              size: 30,
+                            )),
                       ),
                     ],
                   ),
