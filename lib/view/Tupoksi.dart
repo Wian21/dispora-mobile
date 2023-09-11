@@ -14,7 +14,7 @@ class Tupoksi extends StatelessWidget {
               top: 15,
               left: 15,
               right: 15,
-              bottom: 10,
+              bottom: 15,
             ),
             decoration: BoxDecoration(
               color: Color(0xFFCBCCE8),

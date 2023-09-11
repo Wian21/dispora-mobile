@@ -1,3 +1,4 @@
+import 'package:dispora_mobile_new/view/beranda.dart';
 import 'package:flutter/material.dart';
 import 'view/login.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SignIn(),
+      home: Beranda(),
       debugShowCheckedModeBanner: false,
     );
   }
