@@ -176,7 +176,7 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      'Wianur Intiya Angesti',
+                                                      'Drs. SUTIKNO, Ap., M.si',
                                                       style: TextStyle(
                                                           fontSize: 18,
                                                           fontWeight:
@@ -185,7 +185,7 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('Ketua Dispora')
+                                                    Text('Kepala Dinas')
                                                   ],
                                                 )
                                               ],
@@ -229,7 +229,7 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      'Wianur Intiya Angesti',
+                                                      'Drs. ASEP GANDANA',
                                                       style: TextStyle(
                                                           fontSize: 18,
                                                           fontWeight:
@@ -238,7 +238,7 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('Nip. 2103059')
+                                                    Text('Sekretaris')
                                                   ],
                                                 )
                                               ],
@@ -282,16 +282,21 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      'Wianur Intiya Angesti',
+                                                      'MERRY PAULINA S,S.Pd.,MM',
                                                       style: TextStyle(
-                                                          fontSize: 18,
+                                                          fontSize: 14,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                     ),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('Ketua Dispora')
+                                                    Text(
+                                                      'Sub Bagian Umum dan Kepegawaian',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    )
                                                   ],
                                                 )
                                               ],
@@ -335,16 +340,27 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      'Wianur Intiya Angesti',
+                                                      'Yeni Ardiyanti Effendi, SE',
                                                       style: TextStyle(
-                                                          fontSize: 18,
+                                                          fontSize: 16,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                     ),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('Nip. 2103059')
+                                                    Text(
+                                                      'Fungsional Perencana Ahli Muda',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan perencanaan kepemudaan ',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    )
                                                   ],
                                                 )
                                               ],
@@ -388,16 +404,17 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      'Wianur Intiya Angesti',
+                                                      'Agung Kemal Hasan, ST.,MM',
                                                       style: TextStyle(
-                                                          fontSize: 18,
+                                                          fontSize: 14,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                     ),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('Nip. 2103059')
+                                                    Text(
+                                                        'Kepala Bidang Keolahragaan')
                                                   ],
                                                 )
                                               ],
@@ -441,16 +458,17 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      'Wianur Intiya Angesti',
+                                                      'Abdul Sholeh, S.Pd., M.Pd',
                                                       style: TextStyle(
-                                                          fontSize: 18,
+                                                          fontSize: 16,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                     ),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('Nip. 2103059')
+                                                    Text(
+                                                        'Kepala Bidang Kepemudaan')
                                                   ],
                                                 )
                                               ],
@@ -494,7 +512,7 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      'Wianur Intiya Angesti',
+                                                      'Casudi, S.AP',
                                                       style: TextStyle(
                                                           fontSize: 18,
                                                           fontWeight:
@@ -503,7 +521,24 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('Nip. 2103059')
+                                                    Text(
+                                                      'Fungsional Analis Kebijakan Ahli Muda',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Sub Koordinator Olahraga Pendidikan',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Rekreasi',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    )
                                                   ],
                                                 )
                                               ],
@@ -512,7 +547,473 @@ class _StrukturOrganisasi extends State<StrukturOrganisasi> {
                                         ),
                                       ]),
                                     ),
-                                  )
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    width: 310,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadiusDirectional.circular(5),
+                                        border: Border.all(
+                                            width: 1,
+                                            color: Color.fromARGB(
+                                                255, 84, 41, 255))),
+                                    child: Container(
+                                      child: Column(children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Image.asset(
+                                                    'assets/image/p.png'),
+                                                SizedBox(
+                                                  width: 20,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Text(
+                                                      'Eka Madiya, S.Pd',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    Text(
+                                                      'Fungsional Analis Kebijakan Ahli Muda',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Sub Koordinator Olahraga Prestasi',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ]),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    width: 310,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadiusDirectional.circular(5),
+                                        border: Border.all(
+                                            width: 1,
+                                            color: Color.fromARGB(
+                                                255, 84, 41, 255))),
+                                    child: Container(
+                                      child: Column(children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Image.asset(
+                                                    'assets/image/p.png'),
+                                                SizedBox(
+                                                  width: 20,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Text(
+                                                      'Ade Suparman, S.Fil.I',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    Text(
+                                                      'Fungsional Analis Kebijakan Ahli Muda',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Sub Koordinator Olahraga Pembinaan',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Pengembangan Organisasi Olahraga',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ]),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    width: 310,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadiusDirectional.circular(5),
+                                        border: Border.all(
+                                            width: 1,
+                                            color: Color.fromARGB(
+                                                255, 84, 41, 255))),
+                                    child: Container(
+                                      child: Column(children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Image.asset(
+                                                    'assets/image/p.png'),
+                                                SizedBox(
+                                                  width: 20,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Text(
+                                                      'Nunung Kurniasih, SE',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    Text(
+                                                      'Fungsional Analis Kebijakan Ahli Muda',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Sub Koordinator Pemberdayaan',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Pengembangan Pemuda',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ]),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    width: 310,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadiusDirectional.circular(5),
+                                        border: Border.all(
+                                            width: 1,
+                                            color: Color.fromARGB(
+                                                255, 84, 41, 255))),
+                                    child: Container(
+                                      child: Column(children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Image.asset(
+                                                    'assets/image/p.png'),
+                                                SizedBox(
+                                                  width: 20,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Text(
+                                                      'Rahardjo, S.Sos., M.Si',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    Text(
+                                                      'Fungsional Analis Kebijakan Ahli Muda',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Sub Koordinator Pemberdayaan',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Pengembangan Organisasi Pemuda',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ]),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    width: 310,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadiusDirectional.circular(5),
+                                        border: Border.all(
+                                            width: 1,
+                                            color: Color.fromARGB(
+                                                255, 84, 41, 255))),
+                                    child: Container(
+                                      child: Column(children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Image.asset(
+                                                    'assets/image/p.png'),
+                                                SizedBox(
+                                                  width: 20,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Text(
+                                                      'Titin Supriyatin, S.ST',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    Text(
+                                                      'Fungsional Analis Kebijakan Ahli Muda',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'dan Sub Koordinator Pengembangan',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Kapasitas Kepramukaan',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ]),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    width: 310,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadiusDirectional.circular(5),
+                                        border: Border.all(
+                                            width: 1,
+                                            color: Color.fromARGB(
+                                                255, 84, 41, 255))),
+                                    child: Container(
+                                      child: Column(children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Image.asset(
+                                                    'assets/image/p.png'),
+                                                SizedBox(
+                                                  width: 20,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Text(
+                                                      'Iranto Ridarto, S.Kom',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    Text(
+                                                      'Kepala UPT Pembibitan dan',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Pembibitan Olahraga',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ]),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    width: 310,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadiusDirectional.circular(5),
+                                        border: Border.all(
+                                            width: 1,
+                                            color: Color.fromARGB(
+                                                255, 84, 41, 255))),
+                                    child: Container(
+                                      child: Column(children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Image.asset(
+                                                    'assets/image/p.png'),
+                                                SizedBox(
+                                                  width: 20,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Text(
+                                                      'Dini Novianti, S.Sos',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    Text(
+                                                      'Kasubag TU UPT PPOR',
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ]),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ],
