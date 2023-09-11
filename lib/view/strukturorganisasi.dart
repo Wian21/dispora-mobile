@@ -2,9 +2,70 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
-class ProfileScreen extends StatelessWidget {
+Future<List<Album>> fetchAlbum() async {
+  final String token =
+      "Bearer 1|zieoP30NpGAOxzstUiRuFVSo2e4cuZ8v84AepWZR"; // Gantilah YOUR_TOKEN_HERE dengan token Anda
+
+  final response = await http.get(
+    Uri.parse('https://diasporacirebonkab.online/api/pegawai/4'),
+    headers: {
+      'Authorization': token,
+    },
+  );
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    final List<dynamic> data = jsonDecode(response.body);
+    final List<Album> albums =
+        data.map((json) => Album.fromJson(json)).toList();
+    return albums;
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load album');
+  }
+}
+
+class Album {
+  final int id;
+  final String nama;
+  final String jabatan;
+
+  const Album({
+    required this.id,
+    required this.nama,
+    required this.jabatan,
+  });
+
+  factory Album.fromJson(Map<String, dynamic> json) {
+    return Album(
+      id: json['id'],
+      nama: json['nama'],
+      jabatan: json['jabatan'],
+    );
+  }
+}
+
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ProfileScreen> createState() => _TestState();
+}
+
+class _TestState extends State<ProfileScreen> {
+  late Future<List<Album>> futureAlbums; // Perbarui tipe data
+
+  @override
+  void initState() {
+    super.initState();
+    futureAlbums = fetchAlbum();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +85,13 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 10),
             itemProfile('Phone', '03107085816', CupertinoIcons.phone),
             const SizedBox(height: 10),
-            itemProfile('Address', 'abc address, xyz city', CupertinoIcons.location),
+            itemProfile(
+                'Address', 'abc address, xyz city', CupertinoIcons.location),
             const SizedBox(height: 10),
             itemProfile('Email', 'WIanur Intiya Angesti', CupertinoIcons.mail),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -35,8 +99,7 @@ class ProfileScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.all(15),
                   ),
-                  child: const Text('Edit Profile')
-              ),
+                  child: const Text('Edit Profile')),
             )
           ],
         ),
@@ -47,8 +110,8 @@ class ProfileScreen extends StatelessWidget {
   itemProfile(String title, String subtitle, IconData iconData) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
       ),
       child: ListTile(
         title: Text(title),
@@ -60,4 +123,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-

@@ -3,39 +3,39 @@
 // import 'package:dispora_mobile/view/register.dart';
 import 'package:dispora_mobile_new/view/register.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'dart:convert';
+// import 'package:http/http.dart' as http;
+// import 'dart:async';
+// import 'dart:convert';
 import 'beranda.dart';
 
-Future<void> loginUser(User user) async {
-  final String apiUrl = 'https://diasporacirebonkab.online/api/login';
-  final response = await http.post(
-    Uri.parse(apiUrl),
-    headers: <String, String>{
-      'Content-Type': 'application/json',
-    },
-    body: jsonEncode(user.toJson()), // Mengonversi objek User ke JSON
-  );
+// Future<void> loginUser(User user) async {
+//   final String apiUrl = 'https://diasporacirebonkab.online/api/login';
+//   final response = await http.post(
+//     Uri.parse(apiUrl),
+//     headers: <String, String>{
+//       'Content-Type': 'application/json',
+//     },
+//     body: jsonEncode(user.toJson()), // Mengonversi objek User ke JSON
+//   );
 
-  if (response.statusCode == 200) {
-    // Berhasil login, lakukan sesuatu seperti navigasi ke beranda
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Beranda()),
-    );
-  } else {
-    // Gagal login, tampilkan pesan kesalahan atau lakukan tindakan yang sesuai
-    final Map<String, dynamic> responseData = jsonDecode(response.body);
-    final String errorMessage = responseData['message'];
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(errorMessage),
-        duration: const Duration(seconds: 2),
-      ),
-    );
-  }
-}
+//   if (response.statusCode == 200) {
+//     // Berhasil login, lakukan sesuatu seperti navigasi ke beranda
+//     Navigator.push(
+//       context,
+//       MaterialPageRoute(builder: (context) => Beranda()),
+//     );
+//   } else {
+//     // Gagal login, tampilkan pesan kesalahan atau lakukan tindakan yang sesuai
+//     final Map<String, dynamic> responseData = jsonDecode(response.body);
+//     final String errorMessage = responseData['message'];
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       SnackBar(
+//         content: Text(errorMessage),
+//         duration: const Duration(seconds: 2),
+//       ),
+//     );
+//   }
+// }
 
 class User {
   final String username;
@@ -184,11 +184,12 @@ class _SignInState extends State<SignIn> {
                   ),
                   TextButton(
                       onPressed: () {
-    final String username = // Ambil nilai dari TextFormField untuk username
-    final String password = // Ambil nilai dari TextFormField untuk password
-    final user = User(username: username, password: password);
-    loginUser(user);
-  },
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Beranda(),
+                            ));
+                      },
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 25),
                         alignment: Alignment.center,
