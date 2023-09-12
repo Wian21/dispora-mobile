@@ -24,10 +24,8 @@ class _PilihanState extends State<Pilihan> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          margin: EdgeInsets.symmetric(horizontal: 20),
+        child: SingleChildScrollView(
+          controller: ScrollController(),
           child: Column(
             children: [
               SizedBox(
@@ -236,7 +234,7 @@ class _PilihanState extends State<Pilihan> {
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(top: 10),
+                margin: EdgeInsets.only(top: 10, bottom: 50),
                 width: 150,
                 height: 150,
                 decoration: BoxDecoration(
