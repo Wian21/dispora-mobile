@@ -1,4 +1,7 @@
 import 'package:dispora_mobile_new/view/login.dart';
+import 'package:dispora_mobile_new/widget/breaking_news_card.dart';
+import 'package:dispora_mobile_new/widget/news_list_tile.dart';
+import 'package:dispora_mobile_new/widget/news_model.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'menu.dart';
@@ -268,75 +271,85 @@ class _BerandaState extends State<Beranda> {
                   height: 10,
                 ),
                 Container(
-                  // width: MediaQuery.of(context).size.width,
-                  height: 200,
-                  child: CarouselSlider(
-                    options: CarouselOptions(
-                      height: 400,
-                      aspectRatio: 16 / 9,
-                      viewportFraction: 0.8,
-                      initialPage: 0,
-                      enableInfiniteScroll: true,
-                      reverse: false,
-                      autoPlay: true,
-                      autoPlayInterval: Duration(seconds: 3),
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enlargeCenterPage: true,
-                      enlargeFactor: 0.3,
-                      // onPageChanged: callbackFunction,
-                      scrollDirection: Axis.horizontal,
-                    ),
-                    items: [
-                      'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/clean-live-news-broadcast-youtube-thumbnail-design-template-5e199441ba704f9ad6f8f83fe571c4ea_screen.jpg?ts=1602538923',
-                      'https://c0.piktochart.com/v2/themes/3022-news-youtube-thumbnail/snapshot/large.jpg',
-                      'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/world-news-video-thumbnail-design-template-53991b1123cd5af44548f50d467dbdef_screen.jpg?ts=1634990244',
-                      'https://cdn-image.hipwee.com/wp-content/uploads/2019/05/hipwee-headline-news-baper-2-750x422.jpg',
-                      'https://gdb.voanews.com/0f8ecaea-4d18-419d-a857-b99d7e593ae2_tv_w1080_h608.jpg'
-                    ].map((i) {
-                      return Builder(
-                        builder: (BuildContext context) {
-                          return Container(
-                            width: 400,
-                            // height: 100,
-
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.cover, image: NetworkImage(i))),
-                          );
-                        },
-                      );
-                    }).toList(),
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width,
-                  height: 470,
-                  color: Colors.white,
-                  child: Expanded(
-                    child: ListView.builder(
-                      itemCount: 5,
-                      itemBuilder: (context, index) {
-                        return Container(
-                            width: 300,
-                            height: 150,
-                            margin: EdgeInsets.all(2),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
-                                        'https://blog.logrocket.com/wp-content/uploads/2022/08/newscard.jpg'))));
-                      },
+                  // width: MediaQuery.of(context).size.width
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Breaking News",
+                          style: TextStyle(
+                            fontSize: 26.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        //let's build our caroussel
+                        CarouselSlider.builder(
+                            itemCount: NewsData.breakingNewsData.length,
+                            itemBuilder: (context, index, id) =>
+                                BreakingNewsCard(
+                                    NewsData.breakingNewsData[index]),
+                            options: CarouselOptions(
+                              aspectRatio: 16 / 9,
+                              enableInfiniteScroll: false,
+                              enlargeCenterPage: true,
+                            )),
+                        SizedBox(
+                          height: 40.0,
+                        ),
+                        Text(
+                          "Recent News",
+                          style: TextStyle(
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16.0,
+                        ),
+                        //now let's create the cards for the recent news
+                        Column(
+                          children: NewsData.recentNewsData
+                              .map((e) => NewsListTile(e))
+                              .toList(),
+                        ),
+                      ],
                     ),
                   ),
                 ),
+                // SizedBox(
+                //   height: 30,
+                // ),
+                // Container(
+                //   alignment: Alignment.center,
+                //   width: MediaQuery.of(context).size.width,
+                //   height: 470,
+                //   color: Colors.white,
+                //   child: Expanded(
+                //     child: ListView.builder(
+                //       itemCount: 5,
+                //       itemBuilder: (context, index) {
+                //         return Container(
+                //             width: 300,
+                //             height: 150,
+                //             margin: EdgeInsets.all(2),
+                //             decoration: BoxDecoration(
+                //                 borderRadius: BorderRadius.circular(15),
+                //                 image: DecorationImage(
+                //                     fit: BoxFit.cover,
+                //                     image: NetworkImage(
+                //                         'https://blog.logrocket.com/wp-content/uploads/2022/08/newscard.jpg'))));
+                //       },
+                //     ),
+                //   ),
+                // ),
                 SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 Container(
                   child: Row(
