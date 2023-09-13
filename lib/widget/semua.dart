@@ -6,6 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'inspek.dart';
 
+Future<List<dynamic>> fetchAlbum() async {
+  final String token = "Bearer 1|zieoP30NpGAOxzstUiRuFVSo2e4cuZ8v84AepWZR";
+
+  final response = await http.get(
+    Uri.parse('https://diasporacirebonkab.online/api/galeri/foto/'),
+    headers: {
+      'Authorization': token,
+    },
+  );
+
+  if (response.statusCode == 200) {
+    final Map<String, dynamic> data = jsonDecode(response.body);
+    final List<dynamic> albums = data['data'];
+    return albums;
+  } else {
+    throw Exception('Failed to load album');
+  }
+}
+
 class TabDua extends StatefulWidget {
   const TabDua({super.key});
 
