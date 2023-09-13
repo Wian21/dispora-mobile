@@ -1,7 +1,7 @@
 //while the app is building let's create the NewsData class
 import 'package:equatable/equatable.dart';
 
-class NewsData  {
+class NewsData {
   final String title;
   final String author;
   final String content;
@@ -19,7 +19,7 @@ class NewsData  {
       // this.date,
       this.urlToImage,
       this.pengunjung,
-      this.ceratedAt, 
+      this.ceratedAt,
       this.kategori);
 
   //we will use dummy data to generate the news,but you can use a third party api or your own backend to extract the data
@@ -34,7 +34,6 @@ class NewsData  {
       DateTime.now().subtract(const Duration(hours: 6)),
       "Sports",
     ),
-  
     NewsData(
       "Honda Takut Kehilangan MArc Marquez",
       "Lucas Aditya",
@@ -45,10 +44,9 @@ class NewsData  {
       "Sports",
     ),
     NewsData(
-      
       "Ini yang Bikin Apri/Fadia Sempat Emosi ke Wasit",
       "Mercy Raya",
-      "Apriyani Rahayu/Siti Fadia Silva Ramadhanti mengaku sempat emosi dengan keputusan wasit yang merugikan mereka di China Open 2023. Ini gegaranya!",
+      "Apriyani Rahayu/Siti Fadia Silva Ramadhanti mengaku sempat emosi dengan keputusan wasit yang merugikan mereka di China Open 2023. Ini gegaranya!, Hal itu diungkapkan Apri/Fadia seusai bertanding melawan wakil Thailand, Jongkolphan Kititharakul/Rawinda Prajongjai Olympics Sports Center Gymnasium, pada Rabu (6/9/2023). Dalam laga tersebut, runner up Kejuaraan Dunia Bulutangkis 2023 itu memang menang atas wakil Thailand usai melewati laga ketat 17-21, 21-12, 21-19. Namun, di sela-sela pertandingan tersebut, sempat ada momen yang akhirnya menyulut emosi Apriyani terutama di gim ketiga. Saat Kititharakul/Prajongjai mengejar di kedudukan 17-19, ada insiden wasit menilai shuttlecock mengenai wajah Apriyani, yang akhirnya berujung protes. Padahal, menurut Apriyani kejadiannya tidak demikian.\"Tadi memang tidak terkena saya shuttlecock-nya, dan jujur saya agak emosi, tapi saya coba hargai keputusan wasit.\" Fadia juga coba menenangkan karena masih ada poin yang harus dimainkan, saya akhirnya melupakan hal itu dan fokus lagi meraih kemenangan,\" kata Apriyani dalam kutipan cepat yang dikirim PBSI kepada pewarta.\"",
       "https://akcdn.detik.net.id/community/media/visual/2023/08/26/apriyani-rahayusiti-fadia-silva-ramadhanti-3.jpeg?w=700&q=90",
       "200",
       DateTime.now().subtract(const Duration(hours: 6)),
@@ -94,5 +92,4 @@ class NewsData  {
       "Sports",
     ),
   ];
-  
 }
