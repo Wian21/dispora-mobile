@@ -8,7 +8,7 @@ import 'fasilitas_model.dart';
 class FasilitasScreen extends StatelessWidget {
   final Fasilitas_model fasilitas_model;
   const FasilitasScreen({super.key, required this.fasilitas_model});
-
+  // final link = "https://diasporacirebonkab.online/core/public/gambarfasilitas/";
   @override
   Widget build(BuildContext context) {
     return Scaffold(

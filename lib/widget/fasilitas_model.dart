@@ -4,8 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<List<Fasilitas_model>> fetchAlbum() async {
-  final String token =
-      "Bearer 1|zieoP30NpGAOxzstUiRuFVSo2e4cuZ8v84AepWZR"; // Gantilah YOUR_TOKEN_HERE dengan token Anda
+  final String token = "Bearer 1|zieoP30NpGAOxzstUiRuFVSo2e4cuZ8v84AepWZR";
 
   final response = await http.get(
     Uri.parse('https://diasporacirebonkab.online/api/fasilitas'),
@@ -15,15 +14,18 @@ Future<List<Fasilitas_model>> fetchAlbum() async {
   );
 
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    final List<dynamic> data = jsonDecode(response.body);
-    final List<Fasilitas_model> fasilitas_model =
-        data.map((json) => Fasilitas_model.fromJson(json)).toList();
-    return fasilitas_model;
+    final Map<String, dynamic> responseData = jsonDecode(response.body);
+
+    if (responseData.containsKey("data") &&
+        responseData["data"] is List<dynamic>) {
+      final List<dynamic> data = responseData["data"];
+      final List<Fasilitas_model> fasilitas_model =
+          data.map((json) => Fasilitas_model.fromJson(json)).toList();
+      return fasilitas_model;
+    } else {
+      throw Exception('Data format from API is not as expected');
+    }
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
     throw Exception('Failed to load album');
   }
 }
@@ -50,7 +52,8 @@ class Fasilitas_model {
       id: json['id'],
       judul_fasilitas: json['judul_fasilitas'],
       deskripsi: json['deskripsi'],
-      gambar: json['gambar'],
+      gambar: "https://diasporacirebonkab.online/core/public/gambarfasilitas/" +
+          json['gambar'],
       lokasi: json['lokasi'],
       link_map: json['link_map'],
     );

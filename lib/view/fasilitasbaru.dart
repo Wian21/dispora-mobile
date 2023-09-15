@@ -10,100 +10,116 @@ class fasilitasku extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Fasilitas_model> fasilitasModels =
-        Fasilitas_model.fasilitas_model; // Ganti nama variabel
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 120,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Beranda(),
-                  ));
-            },
-            icon: Icon(
-              Icons.arrow_back_ios_new_outlined,
-              color: Colors.black,
-            )),
-        flexibleSpace: ClipPath(
-          clipper: _CustomClipper(),
-          child: Container(
-            height: 170,
-            width: MediaQuery.of(context).size.width,
-            color: Color(0xFFCBCCE8),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 80,
-                ),
-                Container(
-                  child: Text(
-                    'Fasilitas',
-                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
+    return FutureBuilder<List<Fasilitas_model>>(
+      future: fetchAlbum(), // Mengambil data dari API
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator(); // Tampilkan indikator loading jika data belum tersedia.
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        } else {
+          final List<Fasilitas_model> fasilitasModels = snapshot.data!;
+
+          return Scaffold(
+            appBar: AppBar(
+              toolbarHeight: 120,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: IconButton(
+                  onPressed: () {
+                    Navigator.pop(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Beranda(),
+                        ));
+                  },
+                  icon: Icon(
+                    Icons.arrow_back_ios_new_outlined,
+                    color: Colors.black,
+                  )),
+              flexibleSpace: ClipPath(
+                clipper: _CustomClipper(),
+                child: Container(
+                  height: 170,
+                  width: MediaQuery.of(context).size.width,
+                  color: Color(0xFFCBCCE8),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 80,
+                      ),
+                      Container(
+                        child: Text(
+                          'Fasilitas',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .copyWith(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
                         ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
-      ),
-      extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 50,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              RichText(
-                text: TextSpan(
-                  style: Theme.of(context).textTheme.headline6,
+            extendBodyBehindAppBar: true,
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 50,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextSpan(
-                      text: 'Featured',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline6!
-                          .copyWith(fontWeight: FontWeight.bold),
+                    RichText(
+                      text: TextSpan(
+                        style: Theme.of(context).textTheme.headline6,
+                        children: [
+                          TextSpan(
+                            text: 'Featured',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline6!
+                                .copyWith(fontWeight: FontWeight.bold),
+                          ),
+                          const TextSpan(text: 'Fasilitasion'),
+                        ],
+                      ),
                     ),
-                    const TextSpan(text: 'Fasilitasion'),
+                    const SizedBox(height: 70),
+                    for (final fasilitasModel in fasilitasModels)
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FasilitasScreen(
+                                  fasilitas_model:
+                                      fasilitasModel), // Ganti nama variabel
+                            ),
+                          );
+                        },
+                        child: FasilitasListItem(
+                          imageUrl:
+                              fasilitasModel.gambar, // Ganti nama variabel
+                          name: fasilitasModel
+                              .judul_fasilitas, // Ganti nama variabel
+                          information:
+                              '${fasilitasModel.lokasi}', //| ${Fasilitas_model.keterangan}',
+                        ),
+                      ),
                   ],
                 ),
               ),
-              const SizedBox(height: 70),
-              for (final fasilitasModel in fasilitasModels)
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => FasilitasScreen(
-                            fasilitas_model:
-                                fasilitasModel), // Ganti nama variabel
-                      ),
-                    );
-                  },
-                  child: FasilitasListItem(
-                    imageUrl: fasilitasModel.gambar, // Ganti nama variabel
-                    name: fasilitasModel.judul_fasilitas, // Ganti nama variabel
-                    information:
-                        '${fasilitasModel.lokasi}', //| ${Fasilitas_model.keterangan}',
-                  ),
-                ),
-            ],
-          ),
-        ),
-      ),
+            ),
+          );
+        }
+      },
     );
   }
 }
