@@ -1,42 +1,62 @@
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+
+Future<List<Fasilitas_model>> fetchAlbum() async {
+  final String token =
+      "Bearer 1|zieoP30NpGAOxzstUiRuFVSo2e4cuZ8v84AepWZR"; // Gantilah YOUR_TOKEN_HERE dengan token Anda
+
+  final response = await http.get(
+    Uri.parse('https://diasporacirebonkab.online/api/fasilitas'),
+    headers: {
+      'Authorization': token,
+    },
+  );
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    final List<dynamic> data = jsonDecode(response.body);
+    final List<Fasilitas_model> fasilitas_model =
+        data.map((json) => Fasilitas_model.fromJson(json)).toList();
+    return fasilitas_model;
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load album');
+  }
+}
+
 class Fasilitas_model {
-  final String name;
-  final String imagePath;
-  final String alamat;
-  final String keterangan;
+  final int id;
+  final String judul_fasilitas;
+  final String deskripsi;
+  final String gambar;
+  final String lokasi;
+  final String link_map;
+  static List<Fasilitas_model> fasilitas_model = [];
 
-  Fasilitas_model(
-      {required this.name,
-      required this.imagePath,
-      required this.alamat,
-      required this.keterangan});
+  const Fasilitas_model({
+    required this.id,
+    required this.judul_fasilitas,
+    required this.deskripsi,
+    required this.gambar,
+    required this.lokasi,
+    required this.link_map,
+  });
+  factory Fasilitas_model.fromJson(Map<String, dynamic> json) {
+    final fasilitas = Fasilitas_model(
+      id: json['id'],
+      judul_fasilitas: json['judul_fasilitas'],
+      deskripsi: json['deskripsi'],
+      gambar: json['gambar'],
+      lokasi: json['lokasi'],
+      link_map: json['link_map'],
+    );
 
-  static List<Fasilitas_model> fasilitas_model = [
-    Fasilitas_model(
-        name: 'AULA DISPORA',
-        imagePath:
-            'https://diasporacirebonkab.online/core/public/gambarfasilitas/1692797548_5-1140x570.jpg',
-        alamat: 'Kantor Dispora',
-        keterangan:
-            'jfbskfiufhwkjfnufhwlfhwlef;jkjfnlkfalksjfnalletyou go kjfnkddfhufhkjffhbjskbfgfksjfbkwfbkbjwkbbkjgbjhgbjhgbjhgugkjwkjwfhafnkafuwnwkhgkjgkgejkgneugkjgelbgejghmdbkdgbhjbhjfberghjekhguegeghuieghuiguiiuuhugheirugheiugeiurgeigk'),
-    Fasilitas_model(
-        name: 'STADIO RANGGAJATI',
-        imagePath:
-            'https://diasporacirebonkab.online/core/public/gambarfasilitas/1692795974_image (1).png',
-        alamat: 'Kecamatan Sumber',
-        keterangan:
-            'Adinda merupakan mahasiswa berjnis hfybfsklfhsugfhkljfbsygfskjfhsyfgsfygfawkjfguyfgwkjfygfkwhfkuywgfkfbkgfjgfgfkgfksfgskgfskgsfgwyukfgbhgdbawujfhsfbsghfbsgguhfjbsjkfsjiklfhjjfgdhsjbfsjfghsjfgsj'),
-    Fasilitas_model(
-        name: 'STADION BIMA',
-        imagePath:
-            'https://diasporacirebonkab.online/core/public/gambarfasilitas/1692796519_Dn-qNuAUwAEgXR2.jpg',
-        alamat: 'Sunyaragi Kec.Kesambi ',
-        keterangan: 'selengkapnya..'),
-    Fasilitas_model(
-        name: 'GOR BIMA',
-        imagePath:
-            'https://diasporacirebonkab.online/core/public/gambarfasilitas/1692796943_11858883_vnFYXxvMEKw82P_KRjK9_zq4av3rsf5jWM7N13cYHAc.jpg',
-        alamat: 'Karyamulya, Sunyaragi Kec.Kesambi',
-        keterangan:
-            'gkegjelgjlghgroghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhiorehggrwngjrgergnergwnghgwgwrlkgjigjkfsnfvsvkjnsdcns,dcnsdjndiuefjierhglnjkfsvlighvglvnsjkvnlejvknvknvkjvbljkdnvjkvnkjlbjkjkgnjkvnkjevnkjvneknkjvnekjvnlkjvjlknsjek'),
-  ];
+    fasilitas_model.add(fasilitas); // Menambahkan fasilitas ke dalam list
+
+    return fasilitas;
+  }
 }

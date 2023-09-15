@@ -1,5 +1,8 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'fasilitas_model.dart';
 
 class FasilitasScreen extends StatelessWidget {
@@ -17,7 +20,7 @@ class FasilitasScreen extends StatelessWidget {
               color: const Color(0xFFCBCCE8),
             ),
             Image.network(
-              fasilitas_model.imagePath,
+              fasilitas_model.gambar,
               height: MediaQuery.of(context).size.height * 0.5,
               fit: BoxFit.cover,
             ),
@@ -25,7 +28,10 @@ class FasilitasScreen extends StatelessWidget {
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.transparent, Color(0xFFCBCCE8)],
+                    colors: [
+                      Colors.transparent,
+                      Color.fromARGB(255, 255, 255, 255)
+                    ],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     stops: [0.4, 0.6],
@@ -61,7 +67,7 @@ class FasilitasScreen extends StatelessWidget {
                               .copyWith(color: Colors.white),
                           children: [
                             TextSpan(
-                              text: 'Boking Sekarang!',
+                              text: 'Lihat Di Maps',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge!
@@ -84,14 +90,14 @@ class FasilitasScreen extends StatelessWidget {
 
   Positioned _buildFasilitasInformation(BuildContext context) {
     return Positioned(
-      bottom: 150,
+      bottom: MediaQuery.of(context).size.height - 460,
       width: MediaQuery.of(context).size.width,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Text(
-              fasilitas_model.name,
+              fasilitas_model.judul_fasilitas,
               style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -99,7 +105,7 @@ class FasilitasScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              '${fasilitas_model.alamat}',
+              '${fasilitas_model.lokasi}',
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 14,
@@ -109,7 +115,7 @@ class FasilitasScreen extends StatelessWidget {
               height: 10,
             ),
             Text(
-              '${fasilitas_model.keterangan}',
+              '${fasilitas_model.deskripsi}',
               maxLines: 10,
               style: Theme.of(context)
                   .textTheme

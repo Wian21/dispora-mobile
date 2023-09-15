@@ -10,7 +10,8 @@ class fasilitasku extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Fasilitas_model> fasilitas_model = Fasilitas_model.fasilitas_model;
+    List<Fasilitas_model> fasilitasModels =
+        Fasilitas_model.fasilitas_model; // Ganti nama variabel
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 120,
@@ -80,22 +81,23 @@ class fasilitasku extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 70),
-              for (final Fasilitas_model in fasilitas_model)
+              for (final fasilitasModel in fasilitasModels)
                 InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            FasilitasScreen(fasilitas_model: Fasilitas_model),
+                        builder: (context) => FasilitasScreen(
+                            fasilitas_model:
+                                fasilitasModel), // Ganti nama variabel
                       ),
                     );
                   },
                   child: FasilitasListItem(
-                    imageUrl: Fasilitas_model.imagePath,
-                    name: Fasilitas_model.name,
+                    imageUrl: fasilitasModel.gambar, // Ganti nama variabel
+                    name: fasilitasModel.judul_fasilitas, // Ganti nama variabel
                     information:
-                        '${Fasilitas_model.alamat}', //| ${Fasilitas_model.keterangan}',
+                        '${fasilitasModel.lokasi}', //| ${Fasilitas_model.keterangan}',
                   ),
                 ),
             ],
