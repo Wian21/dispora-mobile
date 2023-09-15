@@ -7,6 +7,7 @@ import 'package:dispora_mobile_new/widget/news_model.dart';
 class DetailsScreen extends StatefulWidget {
   DetailsScreen(this.data, {Key? key}) : super(key: key);
   NewsData data;
+  static const routeName = '/data';
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
 }

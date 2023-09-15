@@ -13,7 +13,7 @@ class FasilitasScreen extends StatelessWidget {
         children: [
           ...[
             Container(
-              height: double.infinity,
+              height: double.maxFinite,
               color: const Color(0xFFCBCCE8),
             ),
             Image.network(
@@ -84,7 +84,7 @@ class FasilitasScreen extends StatelessWidget {
 
   Positioned _buildFasilitasInformation(BuildContext context) {
     return Positioned(
-      bottom: 150,
+      bottom: 200,
       width: MediaQuery.of(context).size.width,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
