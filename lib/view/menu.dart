@@ -4,6 +4,7 @@
 // import 'package:dispora_mobile/view/profile_kepala.dart';
 // import 'package:dispora_mobile/view/login.dart';
 // import 'package:dispora_mobile/view/tentang_dispora.dart';
+import 'package:dispora_mobile_new/view/discover_screen.dart';
 import 'package:dispora_mobile_new/view/tentangdisporabaru.dart';
 import 'package:flutter/material.dart';
 
@@ -207,7 +208,7 @@ class _PilihanState extends State<Pilihan> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) => MediaBerita())));
+                                builder: ((context) => DiscoverScreen())));
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,

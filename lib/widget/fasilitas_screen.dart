@@ -16,7 +16,7 @@ class FasilitasScreen extends StatelessWidget {
         children: [
           ...[
             Container(
-              height: double.infinity,
+              height: double.maxFinite,
               color: const Color(0xFFCBCCE8),
             ),
             Image.network(
