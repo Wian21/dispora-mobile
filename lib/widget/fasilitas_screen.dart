@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'fasilitas_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FasilitasScreen extends StatelessWidget {
   final Fasilitas_model fasilitas_model;
@@ -58,7 +59,9 @@ class FasilitasScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        _launchURL(fasilitas_model.link_map);
+                      },
                       child: RichText(
                         text: TextSpan(
                           style: Theme.of(context)
@@ -132,5 +135,13 @@ class FasilitasScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+void _launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }

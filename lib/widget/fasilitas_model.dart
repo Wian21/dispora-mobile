@@ -3,31 +3,33 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-Future<List<Fasilitas_model>> fetchAlbum() async {
+Future<List<Fasilitas_model>> fetchAllData() async {
   final String token = "Bearer 1|zieoP30NpGAOxzstUiRuFVSo2e4cuZ8v84AepWZR";
+  List<Fasilitas_model> allData = [];
 
-  final response = await http.get(
-    Uri.parse('https://diasporacirebonkab.online/api/fasilitas'),
-    headers: {
-      'Authorization': token,
-    },
-  );
+  // Loop untuk mengambil data dari kedua halaman
+  for (int page = 1; page <= 2; page++) {
+    final response = await http.get(
+      Uri.parse('https://diasporacirebonkab.online/api/fasilitas?page=$page'),
+      headers: {
+        'Authorization': token,
+      },
+    );
 
-  if (response.statusCode == 200) {
-    final Map<String, dynamic> responseData = jsonDecode(response.body);
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> responseData = jsonDecode(response.body);
+      final List<dynamic> data = responseData['data'];
 
-    if (responseData.containsKey("data") &&
-        responseData["data"] is List<dynamic>) {
-      final List<dynamic> data = responseData["data"];
       final List<Fasilitas_model> fasilitas_model =
           data.map((json) => Fasilitas_model.fromJson(json)).toList();
-      return fasilitas_model;
+
+      allData.addAll(fasilitas_model);
     } else {
-      throw Exception('Data format from API is not as expected');
+      throw Exception('Failed to load data from page $page');
     }
-  } else {
-    throw Exception('Failed to load album');
   }
+
+  return allData;
 }
 
 class Fasilitas_model {

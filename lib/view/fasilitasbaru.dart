@@ -11,7 +11,7 @@ class fasilitasku extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Fasilitas_model>>(
-      future: fetchAlbum(), // Mengambil data dari API
+      future: fetchAllData(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator(); // Tampilkan indikator loading jika data belum tersedia.
