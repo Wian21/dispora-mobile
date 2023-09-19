@@ -59,3 +59,5 @@ class _BreakingNewsCardState extends State<BreakingNewsCard> {
     );
   }
 }
+
+
