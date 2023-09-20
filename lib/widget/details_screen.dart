@@ -7,7 +7,7 @@ import 'package:dispora_mobile_new/widget/news_model.dart';
 class DetailsScreen extends StatefulWidget {
   DetailsScreen(this.data, {Key? key}) : super(key: key);
   NewsData data;
-  static const routeName = '/data';
+   static const routeName = '/data';
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
 }
@@ -15,6 +15,7 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    final data = ModalRoute.of(context)!.settings.arguments as NewsData;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -53,7 +54,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           const SizedBox(width: 10),
                           Text(
                             widget.data.author,
-                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
                                   color: Colors.white,
                                 ),
                           ),
@@ -137,7 +141,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               //     SizedBox(
               //       height: 8.0,
               //     ),
-                  
+
               // CustomTag(
               //   backgroundColor: Colors.grey.shade200,
               //   children: [

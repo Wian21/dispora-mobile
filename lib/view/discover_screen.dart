@@ -77,17 +77,18 @@ class _CategoryNews extends StatelessWidget {
           child: TabBarView(
             children: tabs
                 .map(
-                  (tab) => ListView.builder(
+                  (e) => ListView.builder(
                     shrinkWrap: true,
                     itemCount: data.length,
                     itemBuilder: ((context, index) {
                       return InkWell(
                         onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            DetailsScreen.routeName,
-                            arguments: data[index],
-                          );
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailsScreen(data[index]),
+                              ));
                         },
                         child: Row(
                           children: [
@@ -177,7 +178,7 @@ class _DiscoverNews extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            'Berita keolahragaan dan kepemudaan cirebon',
+            'Berita keolahragaan dan kepemudaan',
             style: Theme.of(context).textTheme.bodySmall,
           ),
           const SizedBox(height: 20),
