@@ -54,16 +54,16 @@ class _CategoryNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final data = NewsData.recentNewsData;
-    return Column(
+    return Column( 
       children: [
         TabBar(
           isScrollable: true,
           indicatorColor: Colors.black,
           tabs: tabs
               .map(
-                (tab) => Tab(
+                (e) => Tab(
                   icon: Text(
-                    tab,
+                    e,
                     style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                           fontWeight: FontWeight.bold,
                         ),

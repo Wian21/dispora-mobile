@@ -1,4 +1,4 @@
-import 'package:dispora_mobile_new/view/newberita.dart';
+
 import 'package:dispora_mobile_new/widget/custom_tag.dart';
 import 'package:dispora_mobile_new/widget/details_screen.dart';
 import 'package:dispora_mobile_new/widget/news_model.dart';

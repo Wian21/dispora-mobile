@@ -70,21 +70,21 @@ class _BerandaState extends State<Beranda> {
                           ],
                         ),
                       ),
-                      Container(
-                        width: 40,
-                        height: 40,
-                        child: IconButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SignIn()));
-                            },
-                            icon: Icon(
-                              Icons.login_rounded,
-                              size: 30,
-                            )),
-                      ),
+                      // Container(
+                      //   width: 40,
+                      //   height: 40,
+                      //   child: IconButton(
+                      //       onPressed: () {
+                      //         Navigator.push(
+                      //             context,
+                      //             MaterialPageRoute(
+                      //                 builder: (context) => SignIn()));
+                      //       },
+                      //       icon: Icon(
+                      //         Icons.login_rounded,
+                      //         size: 30,
+                      //       )),
+                      // ),
                     ],
                   ),
                 ),
