@@ -37,7 +37,7 @@ class NewsData {
     NewsData(
       "Honda Takut Kehilangan MArc Marquez",
       "Lucas Aditya",
-      "Masa depan Marc Marquez di Honda sedang dispekulasikan Pabrikan Jepang itu takut kehilangan Baby Alien..",
+      "Masa depan Marc Marquez di Honda sedang dispekulasikan Pabrikan Jepang itu takut kehilangan Baby Alien. Dalam kaitranya marc marquez ini menyatakan kehilangan dalam atlet pesepakbola ngarang aku aja ini  terserah aklu kamu ga perlu tau apa yang harusnyta di capai dan apa yang harusnya ditentukan hahahahahahahah persetan dengan semua ini aku ga bakal jadi seseorang yang akan menghancurkan cerita masa depan atau future hahahahahah aku hanya jadi seseorang yang akan selalu menyaksikan kehendak cerita ",
       "https://akcdn.detik.net.id/community/media/visual/2023/06/23/marc-marquez_169.jpeg?w=700&q=90",
       "200",
       DateTime.now().subtract(const Duration(hours: 6)),
@@ -74,14 +74,13 @@ class NewsData {
       "Sports",
     ),
     NewsData(
-      "Ester Nurumi Juara Lagi, Taufik Hidayat: Diamond nih, Tinggal Dipoles",
-      "Kris Fathoni",
-      "Gelar juara kembali diraih tunggal putri Indonesia Ester Nurumi Tri Wardoyo saat tampil di Medan, Sumatera Utara. Legenda badminton Taufik Hidayat pun memuji.",
-      "https://akcdn.detik.net.id/community/media/visual/2023/09/10/ester-nurumi-tri-wardoyo_169.webp?w=700&q=90",
-      "200",
-      DateTime.now().subtract(const Duration(hours: 6)),
-      "Sports",
-    ),
+        "Ester Nurumi Juara Lagi, Taufik Hidayat: Diamond nih, Tinggal Dipoles",
+        "Kris Fathoni",
+        "Gelar juara kembali diraih tunggal putri Indonesia Ester Nurumi Tri Wardoyo saat tampil di Medan, Sumatera Utara. Legenda badminton Taufik Hidayat pun memuji.",
+        "https://akcdn.detik.net.id/community/media/visual/2023/09/10/ester-nurumi-tri-wardoyo_169.webp?w=700&q=90",
+        "200",
+        DateTime.now().subtract(const Duration(hours: 6)),
+        "Sports"),
     NewsData(
       "Rahmat Erwin Abdullah Raih Emas dan Pecahkan Rekor Dunia",
       "Mercy Raya",
@@ -91,5 +90,36 @@ class NewsData {
       DateTime.now().subtract(const Duration(hours: 6)),
       "Sports",
     ),
+    NewsData(
+      "Keputusan Jitu di Detik Akhir Bikin Kiper Lazio Jebol Gawang Atletico",
+      "Randy Prasatya",
+      "Kiper Lazio, ivan Provedel, membuat kejutan dengan mencetak gol ke gawang Atletico Madrid. Dia menjelaskan yang terjadi di menit-menit akhir pertandingan. Dia menjelaskan situasi yang terjadi di menit-menit akhir pertandingan itu. Laga Lazio vs Atletico Madrid pada matchday 1 GrupE Liga Champions berlangsung di Stadio Olimpico, Rabu (20/9/2023) dini hari WIB. Kedua tim bermain imbang 1-1. Atletico memimpin sejak babak pertama lewat gol Pablo Barrios. Di saat laga seolah mau tuntas dengan kemenangan Atletico, Lazio mencetak gol detik-detik akhir.",
+      "https://akcdn.detik.net.id/community/media/visual/2023/09/12/rahmat-erwin-abdullah.jpeg?w=700&q=90",
+      "200",
+      DateTime.now().subtract(const Duration(hours: 6)),
+      "Sports",
+    ),
+  ];
+
+  static List<NewsData> DiscoverNewsData = [
+    NewsData(
+      "Keputusan Jitu di Detik Akhir Bikin Kiper Lazio Jebol Gawang Atletico",
+      "Randy Prasatya",
+      "Kiper Lazio, ivan Provedel, membuat kejutan dengan mencetak gol ke gawang Atletico Madrid. Dia menjelaskan yang terjadi di menit-menit akhir pertandingan. Dia menjelaskan situasi yang terjadi di menit-menit akhir pertandingan itu. Laga Lazio vs Atletico Madrid pada matchday 1 GrupE Liga Champions berlangsung di Stadio Olimpico, Rabu (20/9/2023) dini hari WIB. Kedua tim bermain imbang 1-1. Atletico memimpin sejak babak pertama lewat gol Pablo Barrios. Di saat laga seolah mau tuntas dengan kemenangan Atletico, Lazio mencetak gol detik-detik akhir.",
+      "https://akcdn.detik.net.id/community/media/visual/2023/09/12/rahmat-erwin-abdullah.jpeg?w=700&q=90",
+      "200",
+      DateTime.now().subtract(const Duration(hours: 6)),
+      "Sports",
+    ),
+    NewsData(
+      "FIBA World Cup 2023: AS Gagal ke Final, Disindir Badan Atletik Dunia",
+      "Adhi Prasetya",
+      "Amerika Serikat takluk dari Jerman di semifinal FIBA World Cup 2023. Kegagalan melangkah ke partai puncak itu mendapat sindiran Badan Atletik Dunia (World Athletics).",
+      "https://akcdn.detik.net.id/community/media/visual/2023/09/09/amerika-serikat_169.jpeg?w=700&q=90",
+      "200",
+      DateTime.now().subtract(const Duration(hours: 6)),
+      "Sports",
+    ),
+
   ];
 }
