@@ -37,7 +37,7 @@ class NewsData {
     NewsData(
       "Honda Takut Kehilangan MArc Marquez",
       "Lucas Aditya",
-      "Masa depan Marc Marquez di Honda sedang dispekulasikan Pabrikan Jepang itu takut kehilangan Baby Alien..",
+      "Masa depan Marc Marquez di Honda sedang dispekulasikan Pabrikan Jepang itu takut kehilangan Baby Alien. Dalam kaitranya marc marquez ini menyatakan kehilangan dalam atlet pesepakbola ngarang aku aja ini  terserah aklu kamu ga perlu tau apa yang harusnyta di capai dan apa yang harusnya ditentukan hahahahahahahah persetan dengan semua ini aku ga bakal jadi seseorang yang akan menghancurkan cerita masa depan atau future hahahahahah aku hanya jadi seseorang yang akan selalu menyaksikan kehendak cerita ",
       "https://akcdn.detik.net.id/community/media/visual/2023/06/23/marc-marquez_169.jpeg?w=700&q=90",
       "200",
       DateTime.now().subtract(const Duration(hours: 6)),
