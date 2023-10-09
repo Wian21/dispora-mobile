@@ -49,42 +49,40 @@ class _BerandaState extends State<Beranda> {
                             Icons.dashboard,
                             size: 30,
                           )),
-                      Container(
-                        child: Row(
-                          children: [
-                            CustomPaint(
-                              size: Size(
-                                  32,
-                                  (32 * 1.03125)
-                                      .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                              painter: RPSCustomPainter(),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              'Dispora Cirebon',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18),
-                            ),
-                          ],
+                      Center(
+                        child: Container(
+                          child: Row(
+                            children: [
+                              CustomPaint(
+                                size: Size(
+                                    32,
+                                    (32 * 1.03125)
+                                        .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                painter: RPSCustomPainter(),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Dispora Cirebon',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 18),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      // Container(
-                      //   width: 40,
-                      //   height: 40,
-                      //   child: IconButton(
-                      //       onPressed: () {
-                      //         Navigator.push(
-                      //             context,
-                      //             MaterialPageRoute(
-                      //                 builder: (context) => SignIn()));
-                      //       },
-                      //       icon: Icon(
-                      //         Icons.login_rounded,
-                      //         size: 30,
-                      //       )),
-                      // ),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        child: IconButton(
+                            onPressed: () {
+                            },
+                            icon: Icon(
+                              Icons.login_rounded,
+                              size: 30, color: Colors.white,
+                            )),
+                      ),
                     ],
                   ),
                 ),
