@@ -20,7 +20,7 @@ class _NewsListTileState extends State<NewsListTile> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DetailsScreen(widget.data),
+              builder: (context) => DetailsScreen(widget.data.newsda),
             ));
       },
       child: Container(

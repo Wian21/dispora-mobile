@@ -1,8 +1,10 @@
 import 'package:dispora_mobile_new/view/beranda.dart';
 import 'package:dispora_mobile_new/widget/details_screen.dart';
 import 'package:dispora_mobile_new/widget/image_container.dart';
-import 'package:dispora_mobile_new/widget/news_model.dart';
+// import 'package:dispora_mobile_new/widget/news_model.dart';
 import 'package:flutter/material.dart';
+
+import '../widget/Newsmodel2.dart';
 //import 'package:flutter_news_app_ui/screens/screens.dart';
 //import 'package:flutter_news_app_ui/widgets/image_container.dart';
 
@@ -16,30 +18,39 @@ class DiscoverScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> tabs = ['Sport', 'OKP'];
 
-    return DefaultTabController(
-      initialIndex: 0,
-      length: tabs.length,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => Beranda())));
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              color: Colors.black,
-            ),
-          ),
-        ),
-        body: ListView(
-          padding: const EdgeInsets.all(20.0),
-          children: [const _DiscoverNews(), _CategoryNews(tabs: tabs)],
-        ),
-      ),
-    );
+    return FutureBuilder<List<NewsData1>>(
+        future: fetchAllData(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return CircularProgressIndicator(); // Tampilkan indikator loading jika data belum tersedia.
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else {
+            final List<NewsData1> newsdatamodels = snapshot.data!;
+            // initialIndex: 0,
+            // length: tabs.length,
+            return Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                leading: IconButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) => Beranda())));
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios_new_outlined,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              body: ListView(
+                padding: const EdgeInsets.all(20.0),
+                children: [const _DiscoverNews(), _CategoryNews(tabs: tabs)],
+              ),
+            );
+          }
+        });
   }
 }
 
@@ -53,8 +64,8 @@ class _CategoryNews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = NewsData.recentNewsData;
-    return Column( 
+    final data = NewsData1;
+    return Column(
       children: [
         TabBar(
           isScrollable: true,
@@ -86,8 +97,7 @@ class _CategoryNews extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    DetailsScreen(),
+                                builder: (context) => DetailsScreen(news_model),
                               ));
                         },
                         child: Row(

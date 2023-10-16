@@ -1,13 +1,14 @@
 //now let's for the details screen
 
+import 'package:dispora_mobile_new/widget/Newsmodel2.dart';
 import 'package:dispora_mobile_new/widget/custom_tag.dart';
 import 'package:flutter/material.dart';
 import 'package:dispora_mobile_new/widget/news_model.dart';
 
 class DetailsScreen extends StatefulWidget {
   DetailsScreen(this.data, {Key? key}) : super(key: key);
-  NewsData data;
-   static const routeName = '/data';
+  NewsData1 data;
+  static const routeName = '/data';
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
 }
@@ -15,7 +16,7 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    final data = ModalRoute.of(context)!.settings.arguments as NewsData;
+    final data = ModalRoute.of(context)!.settings.arguments as NewsData1;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -30,7 +31,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               child: Column(
                 children: [
                   Text(
-                    widget.data.title,
+                    widget.data.judul_berita,
                     style: Theme.of(context)
                         .textTheme
                         .headlineSmall!
@@ -48,7 +49,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           CircleAvatar(
                             radius: 10,
                             backgroundImage: NetworkImage(
-                              widget.data.urlToImage,
+                              widget.data.foto_berita,
                             ),
                           ),
                           const SizedBox(width: 10),
@@ -73,7 +74,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           ),
                           const SizedBox(width: 10),
                           Text(
-                            '${DateTime.now().difference(widget.data.ceratedAt).inHours}h',
+                            '${DateTime.now().difference(widget.data.created_at as DateTime).inHours}h',
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ],
@@ -88,7 +89,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           ),
                           const SizedBox(width: 10),
                           Text(
-                            '${widget.data.pengunjung}',
+                            '${widget.data.views}',
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ],
@@ -97,17 +98,17 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ),
                   const SizedBox(height: 20),
                   Hero(
-                    tag: "${widget.data.title}",
+                    tag: "${widget.data.judul_berita}",
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30.0),
-                      child: Image.network(widget.data.urlToImage),
+                      child: Image.network(widget.data.foto_berita),
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                    widget.data.content,
+                    widget.data.isi_berita,
                     textAlign: TextAlign.justify,
                     style: Theme.of(context)
                         .textTheme

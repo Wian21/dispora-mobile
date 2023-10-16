@@ -69,10 +69,10 @@ class NewsData1 {
     required this.update_at,
   });
   factory NewsData1.fromJson(Map<String, dynamic> json) {
-    final fasilitas = NewsData1(
+    final newsdata1 = NewsData1(
     id: json['id'],
     judul_berita: json['judul_berita'],
-    id_kategori_berita: json['id_kategori_berita'],
+    id_kategori_berita: json['id_kategori_berita'], 
     ringkasan: json['ringkasan'],
     isi_berita: json['isi_berita'],
     foto_berita: json['foto_berita'],
@@ -94,8 +94,8 @@ class NewsData1 {
       // link_map: json['link_map'],
     );
 
-    newsdata.add(fasilitas); // Menambahkan fasilitas ke dalam list
+    newsdata.add(newsdata1); // Menambahkan fasilitas ke dalam list
 
-    return fasilitas;
+    return newsdata1;
   }
 }
