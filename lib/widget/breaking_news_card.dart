@@ -1,11 +1,12 @@
 // import 'package:dispora_mobile_new/view/newberita.dart';
+import 'package:dispora_mobile_new/widget/Newsmodel2.dart';
 import 'package:dispora_mobile_new/widget/details_screen.dart';
 import 'package:dispora_mobile_new/widget/news_model.dart';
 import 'package:flutter/material.dart';
 
 class BreakingNewsCard extends StatefulWidget {
   BreakingNewsCard(this.data, {Key? key}) : super(key: key);
-  NewsData data;
+  NewsData1 data;
   @override
   State<BreakingNewsCard> createState() => _BreakingNewsCardState();
 }
@@ -26,7 +27,7 @@ class _BreakingNewsCardState extends State<BreakingNewsCard> {
           borderRadius: BorderRadius.circular(30.0),
           image: DecorationImage(
             fit: BoxFit.fill,
-            image: NetworkImage(widget.data.urlToImage),
+            image: NetworkImage(widget.data.foto_berita),
           ),
         ),
         child: Container(
@@ -44,7 +45,7 @@ class _BreakingNewsCardState extends State<BreakingNewsCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.data.title,
+                widget.data.judul_berita,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,

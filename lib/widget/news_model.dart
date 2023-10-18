@@ -1,5 +1,5 @@
 //while the app is building let's create the NewsData class
-import 'package:equatable/equatable.dart';
+// import 'package:equatable/equatable.dart';
 
 class NewsData {
   final String title;

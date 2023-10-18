@@ -1,4 +1,5 @@
 import 'package:dispora_mobile_new/view/login.dart';
+import 'package:dispora_mobile_new/widget/Newsmodel2.dart';
 import 'package:dispora_mobile_new/widget/breaking_news_card.dart';
 import 'package:dispora_mobile_new/widget/news_list_tile.dart';
 import 'package:dispora_mobile_new/widget/news_model.dart';
@@ -291,7 +292,7 @@ class _BerandaState extends State<Beranda> {
                             itemCount: NewsData.breakingNewsData.length,
                             itemBuilder: (context, index, id) =>
                                 BreakingNewsCard(
-                                    NewsData.breakingNewsData[index]),
+                                    NewsData1.newsdata[index]),
                             options: CarouselOptions(
                               aspectRatio: 16 / 9,
                               enableInfiniteScroll: false,
@@ -312,7 +313,7 @@ class _BerandaState extends State<Beranda> {
                         ),
                         //now let's create the cards for the recent news
                         Column(
-                          children: NewsData.recentNewsData
+                          children: NewsData1.newsdata
                               .map((e) => NewsListTile(e))
                               .toList(),
                         ),

@@ -1,4 +1,5 @@
 import 'package:dispora_mobile_new/view/beranda.dart';
+import 'package:dispora_mobile_new/widget/Newsmodel2.dart';
 import 'package:dispora_mobile_new/widget/details_screen.dart';
 import 'package:dispora_mobile_new/widget/image_container.dart';
 import 'package:dispora_mobile_new/widget/news_model.dart';
@@ -53,7 +54,7 @@ class _CategoryNews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = NewsData.recentNewsData;
+    final data = NewsData1.newsdata;
     return Column( 
       children: [
         TabBar(
@@ -87,7 +88,7 @@ class _CategoryNews extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    DetailsScreen(),
+                                    DetailsScreen(data[index]),
                               ));
                         },
                         child: Row(
@@ -97,7 +98,7 @@ class _CategoryNews extends StatelessWidget {
                               height: 80,
                               margin: const EdgeInsets.all(10.0),
                               borderRadius: 5,
-                              imageUrl: data[index].urlToImage,
+                              imageUrl: data[index].foto_berita,
                             ),
                             Expanded(
                               child: Column(
@@ -105,7 +106,7 @@ class _CategoryNews extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    data[index].title,
+                                    data[index].judul_berita,
                                     maxLines: 2,
                                     overflow: TextOverflow.clip,
                                     style: Theme.of(context)
@@ -124,7 +125,7 @@ class _CategoryNews extends StatelessWidget {
                                       ),
                                       const SizedBox(width: 5),
                                       Text(
-                                        '${DateTime.now().difference(data[index].ceratedAt).inHours} hours ago',
+                                        '${data[index].created_at} hours ago',
                                         style: const TextStyle(fontSize: 12),
                                       ),
                                       const SizedBox(width: 20),
@@ -134,7 +135,7 @@ class _CategoryNews extends StatelessWidget {
                                       ),
                                       const SizedBox(width: 5),
                                       Text(
-                                        '${data[index].pengunjung} views',
+                                        '${data[index].views} views',
                                         style: const TextStyle(fontSize: 12),
                                       ),
                                     ],

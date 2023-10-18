@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:dispora_mobile_new/widget/Newsmodel2.dart';
 import 'package:dispora_mobile_new/widget/custom_tag.dart';
 import 'package:dispora_mobile_new/widget/image_container.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ import 'package:dispora_mobile_new/widget/details_screen.dart';
 
 class NewsList extends StatefulWidget {
   NewsList(this.data, {Key? key}) : super(key: key);
-  NewsData data;
+  NewsData1 data;
   @override
   State<NewsList> createState() => _NewsList();
 }
@@ -31,7 +32,7 @@ class _NewsList extends State<NewsList> {
                               height: 80,
                               margin: const EdgeInsets.all(10.0),
                               borderRadius: 5,
-                              imageUrl: widget.data.urlToImage,
+                              imageUrl: widget.data.foto_berita,
                             ),
                             Expanded(
                               child: Column(
@@ -39,7 +40,7 @@ class _NewsList extends State<NewsList> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    widget.data.title,
+                                    widget.data.judul_berita,
                                     maxLines: 2,
                                     overflow: TextOverflow.clip,
                                     style: Theme.of(context)
@@ -58,7 +59,7 @@ class _NewsList extends State<NewsList> {
                                       ),
                                       const SizedBox(width: 5),
                                       Text(
-                                        '${DateTime.now().difference(widget.data.ceratedAt).inHours} hours ago',
+                                        '${widget.data.created_at} hours ago',
                                         style: const TextStyle(fontSize: 12),
                                       ),
                                       const SizedBox(width: 20),
@@ -68,7 +69,7 @@ class _NewsList extends State<NewsList> {
                                       ),
                                       const SizedBox(width: 5),
                                       Text(
-                                        '${widget.data.pengunjung} views',
+                                        '${widget.data.views} views',
                                         style: const TextStyle(fontSize: 12),
                                       ),])]))])
       // child: Container(

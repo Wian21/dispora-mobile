@@ -1,13 +1,15 @@
 import 'dart:ffi';
 
+import 'package:dispora_mobile_new/widget/Newsmodel2.dart';
 import 'package:dispora_mobile_new/widget/custom_tag.dart';
 import 'package:flutter/material.dart';
-import 'package:dispora_mobile_new/widget/news_model.dart';
+import 'package:dispora_mobile_new/widget/Newsmodel2.dart';
+//import 'package:dispora_mobile_new/widget/news_model.dart';
 import 'package:dispora_mobile_new/widget/details_screen.dart';
 
 class NewsListTile extends StatefulWidget {
   NewsListTile(this.data, {Key? key}) : super(key: key);
-  NewsData data;
+  NewsData1 data;
   @override
   State<NewsListTile> createState() => _NewsListTileState();
 }
@@ -20,7 +22,7 @@ class _NewsListTileState extends State<NewsListTile> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DetailsScreen(widget.data.newsda),
+              builder: (context) => DetailsScreen(widget.data),
             ));
       },
       child: Container(
@@ -37,13 +39,13 @@ class _NewsListTileState extends State<NewsListTile> {
             Flexible(
               flex: 3,
               child: Hero(
-                tag: "${widget.data.title}",
+                tag: "${widget.data.judul_berita}",
                 child: Container(
                   height: 100.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
                     image: DecorationImage(
-                      image: NetworkImage(widget.data.urlToImage),
+                      image: NetworkImage(widget.data.foto_berita),
                       fit: BoxFit.fitHeight,
                     ),
                   ),
@@ -59,7 +61,7 @@ class _NewsListTileState extends State<NewsListTile> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      widget.data.title,
+                      widget.data.judul_berita,
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),
@@ -74,7 +76,7 @@ class _NewsListTileState extends State<NewsListTile> {
                           color: Colors.grey,
                         ),
                         Text(
-                          '${DateTime.now().difference(widget.data.ceratedAt).inHours}h',
+                          '${widget.data.created_at}h',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                         SizedBox(
@@ -85,7 +87,7 @@ class _NewsListTileState extends State<NewsListTile> {
                           color: Colors.grey,
                         ),
                         Text(
-                          '${widget.data.pengunjung}',
+                          '${widget.data.views}',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],
